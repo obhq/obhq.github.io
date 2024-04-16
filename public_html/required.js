@@ -54,7 +54,7 @@ function menuButton() {
 
     if (menuState === true) {
         menuState = false;
-        menuButton.src = "/_images/close.svg";
+        menuButton.src = "/_images/close1.svg";
         menu.style.display = "flex";
         menu.style.opacity = 0;
 
@@ -63,7 +63,7 @@ function menuButton() {
         }, 10);
     } else if (menuState === false) {
         menuState = true;
-        menuButton.src = "/_images/menu.svg";
+        menuButton.src = "/_images/menu1.svg";
         menu.style.opacity = 0;
 
         Timer = setTimeout(() => {
@@ -74,25 +74,6 @@ function menuButton() {
 
 function offMenu() {
     menuButton();
-}
-
-function animationHandler() {
-    const observer = new IntersectionObserver(toAnimate, {threshold: 0.5});
-
-    document.querySelectorAll('.toAnimate').forEach(element => {
-        observer.observe(element);
-    });
-
-    function toAnimate(entries, observer) {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                entry.target.classList.remove("toAnimate");
-                observer.unobserve(entry.target);
-
-                entry.target.classList.add("animate");
-            }
-        });
-    }
 }
 
 
@@ -113,10 +94,10 @@ function init() {
                     <a href="https://discord.gg/Qsdaxj6tnH" target="_blank" style="display: flex;">
                         <img class="headerRightIconDiscord" src="/_images/discord.svg" alt="Discord logo">
                     </a>
-                    <img class="headerRightIconMenu" src="/_images/menu.svg" onclick="menuButton()" id="menuButton" alt="Mobile menu button">
+                    <img class="headerRightIconMenu" src="/_images/menu1.svg" onclick="menuButton()" id="menuButton" alt="Mobile menu button">
                 </div>
             </div>
-        </header>`;
+        </header>`
 
     let menu_html = `
         <div class="menuContainer" id="menu" onclick="offMenu()">
@@ -125,7 +106,7 @@ function init() {
                 <a class="menuLink" href="./compatibility">Compatibility</a>
                 <a class="menuLink" href="https://github.com/obhq/obliteration/wiki">Wiki</a>
             </div>
-        </div>`;
+        </div>`
 
     document.getElementById("header").outerHTML = header_html;
     document.getElementById("menu").outerHTML = menu_html;
