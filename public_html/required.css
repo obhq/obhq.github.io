@@ -1,22 +1,6 @@
-/*scrollbar*/
-::-webkit-scrollbar {
-    width: 0.57rem;
-    overflow: visible;
-}
-
-::-webkit-scrollbar-thumb {
-    background: rgba(255, 255, 255, 0.10);
-    border-radius: 0.13rem;
-}
-
-::-webkit-scrollbar-thumb:hover {
-    background: rgba(255, 255, 255, 0.15);
-}
-
-
 :root {
     --text: #eceff4;
-    --text2: #dee1e7;
+    --text2: #d7d7d7;
     --border: #e1e1e10d;
     --solidBorder: #393b3e;
     --background: #1e1e1e;
@@ -26,6 +10,13 @@
     --main1-err: #4240b6;
     --main2: #c44647;
     --main2-err: #4663c4;
+
+    --accent1: rgba(225, 75, 76, 0.95);
+    --accent1H: rgb(234, 80, 80);
+    --accent2: rgba(250, 83, 83, 0.9);
+    --accent2H: rgba(250, 90, 90, 0.9);
+    --accent2D: rgba(210, 53, 53, 0.9);
+    --accent2DH: rgba(215, 58, 58, 0.9);
 }
 
 .text-themed {
@@ -42,7 +33,7 @@
     margin: 0;
     padding: 0;
     font-family: 'inter', sans-serif;
-    scrollbar-color: var(--main1) #ffffff00; /* - FF scrollbar */
+
     color: var(--text);
     text-decoration: none;
     font-weight: 400;
@@ -52,12 +43,37 @@
 
 html {
     font-size: 16px;
+    scrollbar-color: var(--main1) #ffffff00; /* - FF scrollbar */
 }
 
 body {
     overflow-y: scroll; /* maybwe? mostly for consistency*/
 }
 
+/*Animation Styles*/
+.NoOpacity {
+    opacity: 0;
+}
+
+
+.headerIcon:not(.NoOpacity), .headerRight:not(.NoOpacity) { /* Header load-in animation*/
+    transition: opacity 300ms ease-out;
+    opacity: 1;
+}
+
+.menuContainer.NoOpacity { /*disappear animation*/
+    transition: opacity 0.2s ease-out;
+    pointer-events: none;
+    opacity: 0;
+}
+
+.menuContainer:not(.NoOpacity) { /* appear animation */
+    transition: opacity 0.2s ease-in;
+    opacity: 1;
+}
+
+
+/*Header*/
 .header {
     width: 100vw;
     height: 55px;
@@ -65,12 +81,14 @@ body {
     z-index: 5;
     position: fixed;
     background-color: rgb(179, 82, 87, 0.8);
+    -webkit-backdrop-filter: blur(8px);
     backdrop-filter: blur(8px);
     justify-content: space-between;
     flex-direction: row;
     align-items: center;
     border-bottom: 1px solid rgba(255, 255, 255, 0.1);
     transition: box-shadow 0.3s ease;
+    -webkit-user-select: none;
     user-select: none;
 }
 
@@ -140,13 +158,11 @@ body {
 
 .menuContainer {
     z-index: 6;
-    display: none;
     position: fixed;
     right: 0;
     margin: 65px 0 0 0;
     width: 100%;
     height: 100%;
-    transition: opacity 0.2s ease;
 }
 
 .menu {
@@ -159,6 +175,7 @@ body {
     height: 122px;
     right: 0;
     background-color: rgba(126, 44, 46, 0.6);
+    -webkit-backdrop-filter: blur(10px);
     backdrop-filter: blur(10px);
     border-radius: 0.4rem 0 0 0.4rem;
     gap: 15px;
@@ -185,7 +202,7 @@ body {
 }
 
 /* most phones... i think? (hope) */
-@media (min-height: 520px) and (max-width: 460px) {
+@media (max-width: 650px) {
     .headerRightIcons {
         gap: 10px;
     }
