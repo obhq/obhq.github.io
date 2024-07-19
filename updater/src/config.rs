@@ -18,6 +18,7 @@ pub(crate) struct Config {
     pub game_skips_database: String,
     pub database: String,
     pub stats_file: String,
+    pub artifacts_folder: String,
 
     pub tag_homebrew: u64,
     pub tag_playable: u64,
@@ -54,6 +55,7 @@ pub(crate) fn config_creator() -> anyhow::Result<(Config, Secrets)> {
                 game_skips_database: "./game_skips.json".to_string(),
                 database: "./database.json".to_string(),
                 stats_file: "./stats.json".to_string(),
+                artifacts_folder: "./artifacts/".to_string(),
 
                 tag_homebrew: 6164722453,
                 tag_playable: 6164497050,
@@ -77,6 +79,7 @@ pub(crate) fn config_creator() -> anyhow::Result<(Config, Secrets)> {
     // create needed folders
     let game_images_folder = Path::new(&config_data.game_images_folder);
     let homebrew_images_folder = Path::new(&config_data.homebrew_images_folder);
+    let artifacts_folder =Path::new(&config_data.artifacts_folder);
 
     let database_folder = Path::new(&config_data.database).parent().unwrap_or_else(|| {
         panic_red!("Error while getting the parent folder for: \"{}\"", &config_data.database);
@@ -103,6 +106,10 @@ pub(crate) fn config_creator() -> anyhow::Result<(Config, Secrets)> {
         fs::create_dir_all(homebrew_images_folder)?;
     }
 
+    if !artifacts_folder.exists() {
+        fs::create_dir_all(artifacts_folder)?;
+    }
+    
     if !database_folder.exists() {
         fs::create_dir_all(database_folder)?;
     }

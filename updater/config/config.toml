@@ -10,6 +10,7 @@ homebrew_database = "./HBstore.db"
 game_skips_database = "./game_skips.json"
 database = "/home/runner/work/obhqWebsite/temp/updater/database.json"
 stats_file = "/home/runner/work/obhqWebsite/temp/updater/stats.json"
+artifacts_folder = "/home/runner/work/obhqWebsite/temp/updater/artifacts/"
 
 tag_homebrew = 6164722453
 tag_playable = 6164497050

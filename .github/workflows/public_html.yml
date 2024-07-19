@@ -39,6 +39,7 @@ jobs:
           
           # restore files that dont need updating
           git restore --staged --worktree wiki/
+          git restore --staged --worktree download/artifacts/
           git restore --staged --worktree compatibility/_images/games/
           git restore --staged --worktree compatibility/_images/hb/
           git restore --staged --worktree compatibility/database.json

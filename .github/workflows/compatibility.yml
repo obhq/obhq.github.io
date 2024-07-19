@@ -88,6 +88,7 @@ jobs:
           git fetch origin gh-pages
           git switch gh-pages --force
           mkdir -p /home/runner/work/obhqWebsite/obhqWebsite/compatibility/_images/
+          mkdir -p /home/runner/work/obhqWebsite/obhqWebsite/download/artifacts/
           
           rm -r -f /home/runner/work/obhqWebsite/obhqWebsite/compatibility/_images/games/
           rm -r -f /home/runner/work/obhqWebsite/obhqWebsite/compatibility/_images/hb/
@@ -97,10 +98,12 @@ jobs:
           mv -f /home/runner/work/obhqWebsite/temp/updater/images/* /home/runner/work/obhqWebsite/obhqWebsite/compatibility/_images/
           mv -f /home/runner/work/obhqWebsite/temp/updater/database.json /home/runner/work/obhqWebsite/obhqWebsite/compatibility/database.json
           mv -f /home/runner/work/obhqWebsite/temp/updater/stats.json /home/runner/work/obhqWebsite/obhqWebsite/stats.json
+          mv -f /home/runner/work/obhqWebsite/temp/updater/artifacts/* /home/runner/work/obhqWebsite/obhqWebsite/download/artifacts/
           
           git add /home/runner/work/obhqWebsite/obhqWebsite/stats.json -f
           git add /home/runner/work/obhqWebsite/obhqWebsite/compatibility/database.json -f
           git add /home/runner/work/obhqWebsite/obhqWebsite/compatibility/_images/ -f
+          git add /home/runner/work/obhqWebsite/obhqWebsite/download/artifacts/ -f
           
           files_to_commit=$(git status --porcelain | grep -E 'M|A|D' | wc -l)
           if [ $files_to_commit -gt 0 ]; then

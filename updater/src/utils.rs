@@ -1,10 +1,11 @@
 use std::fs;
+use std::fs::File;
 
 use rusqlite::Connection;
 use serde::Serialize;
 use serde_json::Value;
 
-use crate::{eprintln_red, println_cyan, println_green};
+use crate::{eprintln_red, github_request, panic_red, println_cyan, println_green};
 use crate::config::{Config, Secrets};
 
 pub(crate) enum ImageTypes<'lt> {
@@ -104,7 +105,6 @@ struct StatsJson {
 }
 
 pub(crate) fn stats_creator(path: &str, token: &str, github_main: &str, github_comp: &str, workflow: &str) -> Result<(), anyhow::Error> {
-    use crate::github_request;
 
     let stars = github_request(github_main, token)
         .get("stargazers_count")
@@ -136,6 +136,52 @@ pub(crate) fn stats_creator(path: &str, token: &str, github_main: &str, github_c
     fs::write(path, stats_string)?;
     Ok(())
 }
+
+pub(crate) fn github_artifact_downloader(path: &str, token: &str, workflow: &str) -> Result<(), anyhow::Error> {
+    
+    let artifacts_url = github_request(workflow, token)
+        .get("workflow_runs")
+        .unwrap()
+        .get(0)
+        .unwrap()
+        .get("artifacts_url")
+        .and_then(Value::as_str)
+        .expect("Failed to parse JSON o.o!")
+        .to_owned();
+    
+    let artifacts = github_request(&artifacts_url, token)
+        .get("artifacts")
+        .and_then(Value::as_array)
+        .expect("Failed to parse JSON o.o!")
+        .to_owned();
+    
+    for artifact in artifacts {
+        let os = artifact.get("name").and_then(Value::as_str).unwrap_or("");
+        
+        if !os.is_empty() {
+            let download_url = artifact.get("archive_download_url").and_then(Value::as_str).unwrap_or_default();
+            
+                match ureq::get(download_url)
+                    .set("User-Agent", "obliteration.net")
+                    .set("Accept", "*/*")
+                    .set("Authorization", &format!("Bearer {}", token))
+                    .call()
+                {
+                    Ok(response) => {
+                        let mut reader = response.into_reader();
+                        let mut buffer = Vec::new();
+                        reader.read_to_end(&mut buffer)?;
+                        
+                        fs::write(format!("{path}{os}.zip"), buffer)?;
+                    },
+                    Err(response) => panic_red!("Github artifact request failed: {}", response),
+                }
+        }
+    }
+    
+    Ok(())
+}
+
 
 pub(crate) fn homebrew_database_updater(config: &Config, secrets: &Secrets) -> Result<(), anyhow::Error> {
     use md5::{Digest, Md5};
