@@ -50,7 +50,7 @@ body {
 }
 
 .warningHeaderIcon {
-    /*fill: #fa574f;*/
+    fill: #fa574f;
 }
 
 .warningHeaderText {
@@ -213,8 +213,8 @@ body {
 
 
 .downloadListItemIcon {
-    /*height: 1.4rem;*/
-    /*fill: white;*/
+    height: 1.4rem;
+    fill: white;
 }
 
 .downloadListItemText {
