@@ -1,0 +1,376 @@
+body {
+    background-color: var(--background);
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    align-items: center;
+    overflow-y: scroll;
+    overflow-x: hidden;
+}
+
+.main {
+    background-color: var(--background-themed);
+    width: 100%;
+    height: auto;
+    min-height: 100vh;
+    overflow-x: hidden;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    align-content: center;
+    position: relative;
+    z-index: 2;
+}
+
+.content {
+    width: 69rem; /*owo?!*/
+    height: auto;
+    margin: 6.9rem 0 1.7rem 0;
+    z-index: 2;
+}
+
+.warning {
+    border-color: #f85149;
+    border-radius: 0.25rem;
+    border-width:  0.13rem;
+    border-style: solid;
+    width: 100%;
+    height: 4.4rem;
+
+    background: rgba(248, 81, 73, 0.1);
+    margin-bottom: 1.9rem;
+    padding-left: 0.6rem;
+}
+
+.warningHeader {
+    display: flex;
+    padding-top: 0.31rem;
+    align-items: center;
+}
+
+.warningHeaderIcon {
+    /*fill: #fa574f;*/
+}
+
+.warningHeaderText {
+    font-weight: bold;
+    font-size: 1.2rem;
+    color: #5c0504;
+    padding-left: 0.38rem;
+}
+
+.warningContent {
+    display: flex;
+    padding-top: 0.5rem;
+    font-weight: bold;
+}
+
+
+.info {
+    border-radius: 0.25rem;
+    width: 100%;
+    height: 6.25rem;
+    background-color: var(--accent1);
+    margin-bottom: 0.63rem;
+    padding-top: 1rem;
+    box-shadow: rgba(0, 0, 0, 0.1) 0.06rem 0.06rem 0.2rem;
+    display: flex ;
+    gap: 5rem;
+    justify-content: center;
+}
+
+
+
+.infoText {
+    font-size: 1.1rem;
+    font-weight: bold;
+}
+
+.infoTextThemed {
+    background: #8c0a01;
+    border-radius: 0.31rem;
+    padding: 0.07rem 0.94rem;
+    cursor: pointer;
+    user-select: none;
+    font-weight: 600;
+    letter-spacing: 0.07rem;
+    font-size: 1rem;
+    min-height: 2.3rem;
+    max-height: 2.3rem;
+    align-content: center;
+    transition: background-color 200ms ease-out;
+}
+
+.infoSub {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    gap: 0.7rem;
+    opacity: 0;
+    transition: opacity 200ms ease-out;
+}
+
+.infoAuthorUser {
+    background: #8c0a01;
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    user-select: none;
+    margin-left: 0.31rem;
+    border-radius: 0.31rem;
+    max-width: 30%;
+    min-height: 2.3rem;
+    min-width: fit-content;
+    transition: background-color 200ms ease-out;
+}
+
+.infoAuthorIcon {
+    margin-left: 0.1rem;
+    height: 2.06rem;
+    width: 2.06rem;
+    min-width: 2.06rem;
+    border-radius: 0.19rem;
+    border-color: #8c0a01;
+    font-size: 0;
+}
+
+.infoAuthorName {
+    margin-left: 0.31rem;
+    margin-right: 0.63rem;
+    font-size: 1rem;
+    font-weight: bold;
+    text-overflow: ellipsis;
+    text-wrap: nowrap;
+    overflow: hidden;
+}
+
+.infoAuthorUser:hover, .infoTextThemed:hover {
+    background: #a2170f;
+}
+
+.skeletonLoading {
+    background-image: linear-gradient(90deg, var(--accent1), var(--accent2H), var(--accent1)) !important;
+    background-size: 200% 100% !important;
+    animation: skeletonAnimation 2s ease-in-out infinite;
+    cursor: default !important;
+}
+
+@keyframes skeletonAnimation {
+    0% {
+        background-position: -100% 0;
+    }
+    100% {
+        background-position: 100% 0;
+    }
+}
+
+
+.download {
+    background-color: var(--accent1);
+    width: 100%;
+    height: 100%;
+    border-radius: 0.25rem;
+    overflow-x: hidden;
+    box-shadow: rgba(0, 0, 0, 0.1) 0.06rem 0.06rem 0.2rem;
+}
+
+.downloadList {
+    height: 3.12rem;
+    width: 100%;
+    border-radius: 0.25rem 0.25rem 0 0;
+    box-shadow: rgba(0, 0, 0, 0.03) 0.06rem 0.06rem 0.1rem;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    list-style: none;
+}
+
+
+.downloadListItem {
+    flex-grow: 1;
+    border-radius: 0.25rem 0.25rem 0 0;
+    background-color: var(--accent2);
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    transition: background ease-out 200ms;
+}
+
+.downloadListItem:hover {
+    background-color: var(--accent2H);
+}
+
+.downloadListItemSelected {
+    background-color: var(--accent2D);
+}
+.downloadListItemSelected:hover {
+    background-color: var(--accent2DH);
+}
+
+
+
+.downloadListItemIcon {
+    /*height: 1.4rem;*/
+    /*fill: white;*/
+}
+
+.downloadListItemText {
+    padding-left: 0.38rem;
+    font-size: 1rem;
+    font-weight: 500;
+    height: 1.4rem;
+    display: flex;
+    flex-wrap: wrap;
+    align-content: center;
+}
+
+
+.downloadContentList {
+    display: flex;
+
+    transition: all ease-out 0.5s;
+    position: relative;
+    width: 100%;
+}
+
+.downloadContentListItem {
+    display: flex;
+    align-items: center;
+    position: static;
+    min-width: 100%;
+    height: 28rem;
+}
+
+.downloadContentImage {
+    width: 31rem;
+    margin-left: 1.3rem;
+    height: min-content;
+    background: var(--accent2H);
+    border-radius: 0.19rem;
+    box-shadow: rgba(0, 0, 0, 0.1) 0.06rem 0.06rem 0.2rem;
+    font-size: 0; /*hide alt text*/
+}
+
+.downloadContentRight {
+    padding-top: 7rem;
+    height: inherit;
+    width: -moz-available;
+    width: -webkit-fill-available;
+    display: flex;
+    flex-direction: column;
+    justify-items: center;
+    align-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+}
+
+.downloadRightText {
+    font-weight: 600;
+    font-size: 1.2rem;
+    padding-bottom: 2rem;
+}
+
+
+.downloadRightButton {
+    background: #8c0a01;
+    width: 100%;
+    height: 100%;
+    border-radius: 1.5rem;
+    border-width: 0;
+    border-style: none;
+    cursor: pointer;
+    transition: background-color 200ms ease-out;
+    font-size: 1.05rem;
+    font-weight: 600;
+    box-shadow: rgba(0, 0, 0, 0.03) 0.06rem 0.06rem 0.2rem;
+}
+
+.downloadRightButton:hover {
+    background: #a2170f;
+}
+
+.downloadRightLink {
+    border-radius: 1.5rem;
+    width: 15.6rem;
+    height: 3.1rem;
+}
+
+
+.background {
+    position: fixed;
+    top: 0;
+    transform: rotate(80deg);
+    margin-top: 10%;
+    right: 0;
+}
+
+
+@media screen and (max-width: 1150px) {
+    .content {
+        width: 62.5rem;
+    }
+}
+
+@media screen and (max-width: 1050px) {
+    .content {
+        width: 50rem;
+    }
+
+    .downloadContentListItem {
+        padding-top: 2rem;
+        flex-direction: column;
+        height: 34.4rem;
+    }
+
+    .downloadContentRight {
+        padding-top: 2rem;
+    }
+}
+
+@media screen and (max-width: 850px) {
+    .content {
+        width: 43.8rem;
+    }
+}
+
+
+@media screen and (max-width: 750px) {
+    .content {
+        width: 34.4rem;
+    }
+
+    .infoAuthorName {
+        font-size: 0.9rem;
+    }
+
+    .info {
+        gap: 0;
+        justify-content: space-evenly;
+    }
+}
+
+
+
+@media screen and (max-width: 850px) {
+    .backgroundPlane1, .backgroundPlane2 {
+        margin-left: 32rem;
+    }
+}
+
+
+@media screen and (max-width: 600px) {
+    .backgroundPlane1, .backgroundPlane2 {
+        margin-left: 50rem;
+    }
+}
+
+/* most phones... i think? (hope) */
+@media (min-height: 520px) and (max-width: 460px) {
+    .mainBackground {
+        margin-top: 0;
+    }
+}

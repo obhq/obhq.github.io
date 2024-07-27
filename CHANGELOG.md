@@ -5,15 +5,17 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
-### [v1.0.0] (unreleased)
+### [v1.0.0]
 
 #### Added
-- Added artifact downloading to the rust updater script
+- Added automatic artifact downloading to the rust updater script
+- Added the Downloads page
 
 
 #### Changed
 - Fixed the amount of skeletonCards in the comp page from 20 to 10.
 - Modified workflow files for the new Downloads page
+- Modified the `status.json` file to include more values for the download page.
 
 ### [v0.3.1]
 - Put the tmdb hex into the config, instead of a secret variable

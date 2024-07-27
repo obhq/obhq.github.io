@@ -1,15 +1,14 @@
 let databaseJsonData; // :3
-let totalPages; // is this needed? like genuinely?
+let totalPages;
 let currentPage = 1; // starts from 1, NOT 0
 let tagFilter = [];
 let justUpdated;
 let issuesPerPage = 10;
 let issuesCount;
-// let Timer;
 const codeRegex = /[a-zA-Z]{4}[0-9]{5}/;
 
 document.addEventListener('DOMContentLoaded', async function () {
-    let startTime = performance.now()
+    let startTime = performance.now();
 
     // required.js
     adjustScreenSize(610); // might not change the top image for on mobile

@@ -1,5 +1,4 @@
 use std::fs;
-use std::fs::File;
 
 use rusqlite::Connection;
 use serde::Serialize;
@@ -102,6 +101,10 @@ struct StatsJson {
     stars: String,
     issues: String,
     devbuilds: String,
+    commiter_name: String,
+    commiter_avatar: String,
+    build_date: String,
+    build_link: String
 }
 
 pub(crate) fn stats_creator(path: &str, token: &str, github_main: &str, github_comp: &str, workflow: &str) -> Result<(), anyhow::Error> {
@@ -124,11 +127,62 @@ pub(crate) fn stats_creator(path: &str, token: &str, github_main: &str, github_c
         .get("run_number")
         .and_then(Value::as_u64)
         .expect("Failed to parse JSON o.o!");
+    
+    let commiter_name = github_request(workflow, token)
+        .get("workflow_runs")
+        .unwrap()
+        .get(0)
+        .unwrap()
+        .get("actor")
+        .unwrap()
+        .get("login")
+        .and_then(Value::as_str)
+        .expect("Failed to parse JSON o.o!")
+        .to_owned();
 
+    let commiter_avatar = github_request(workflow, token)
+        .get("workflow_runs")
+        .unwrap()
+        .get(0)
+        .unwrap()
+        .get("actor")
+        .unwrap()
+        .get("avatar_url")
+        .and_then(Value::as_str)
+        .expect("Failed to parse JSON o.o!")
+        .to_owned();
+    
+    let build_date = github_request(workflow, token)
+        .get("workflow_runs")
+        .unwrap()
+        .get(0)
+        .unwrap()
+        .get("run_started_at")
+        .and_then(Value::as_str)
+        .expect("Failed to parse JSON o.o!")
+        .to_owned();
+
+    let build_link = github_request(workflow, token)
+        .get("workflow_runs")
+        .unwrap()
+        .get(0)
+        .unwrap()
+        .get("html_url")
+        .and_then(Value::as_str)
+        .expect("Failed to parse JSON o.o!")
+        .to_owned();
+    
+    
+    
+    
     let stats_json: StatsJson = StatsJson {
         stars: stars.to_string(),
         issues: issues.to_string(),
         devbuilds: dev_builds.to_string(),
+        commiter_name,
+        commiter_avatar,
+        build_date,
+        build_link
     };
 
     let stats_string = serde_json::to_string(&stats_json)?;

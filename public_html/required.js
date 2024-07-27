@@ -117,7 +117,7 @@ async function init() {
             <div class="headerRight NoOpacity">
                 <a class="headerLink" href="/download">Download</a>
                 <a class="headerLink" href="/compatibility">Compatibility</a>
-                <a class="headerLink" href="/wiki">Wiki</a>
+                <a class="headerLink" href="/wiki" target="_blank" rel="noopener" >Wiki</a>
                 <div class="headerRightIcons">
                     <a href="https://github.com/obhq/obliteration" target="_blank" rel="noopener" style="display: flex;">
                         <img class="headerRightIconGithub" src="/_images/github.svg" alt="GitHub logo">

@@ -53,47 +53,6 @@ body {
 }
 
 
-.backgroundPlane1, .backgroundPlane2 {
-    position: fixed;
-    transition: margin 0.5s ease;
-    width: 160rem;
-    height: 140rem;
-    margin-left: 22rem;
-    margin-top: -16rem;
-    transform-origin: 50% 48%;
-    border-radius: 43%;
-    top: 3%;
-    left: 10%;
-}
-
-.backgroundPlane1 {
-    animation: rotate1 21000ms infinite linear;
-    background: var(--main1);
-}
-
-.backgroundPlane2 {
-    animation: rotate2 21000ms infinite linear;
-    background: var(--main2);
-}
-
-@keyframes rotate1 {
-    from {
-        transform: rotate(0deg);
-    }
-    to {
-        transform: rotate(360deg);
-    }
-}
-
-@keyframes rotate2 {
-    from {
-        transform: rotate(30deg);
-    }
-    to {
-        transform: rotate(390deg);
-    }
-}
-
 .compMenu {
     width: 37.5rem;
     height: 30.6rem;
@@ -509,7 +468,13 @@ body {
 
 
 @media screen and (max-width: 1150px) {
-    .mainBackground1, .mainBackground2 {
+    .content {
+        width: 800px;
+    }
+}
+
+@media screen and (max-width: 1150px) {
+    .backgroundPlane1, .backgroundPlane2 {
         margin-left: 32rem;
     }
 }
@@ -523,7 +488,7 @@ body {
 
 
 @media screen and (max-width: 600px) {
-    .mainBackground1, .mainBackground2 {
+    .backgroundPlane1, .backgroundPlane2 {
         margin-left: 50rem;
     }
 }
