@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; style-src 'self' 'unsafe-inline' https://rsms.me/; font-src 'self' https://rsms.me/; img-src 'self' https://avatars.githubusercontent.com data:;">
+    <title>Obliteration - Download Obliteration</title>
+    <meta name="description" content="Obliteration is an experimental open-source PS4 emulator written in Rust for Windows, MacOS, and Linux.">
+    <meta name="keywords" content="Obliteration, playstation, ps4, playstation 4, emulator, windows, macOS, linux, open-source, rust, C++, obliteration github, obliteration discord, obliteration wiki">
+    <meta name="robots" content="index,follow">
+    <meta name="author" content="Obliteration">
+    <meta name="copyright" content="Obliteration">
+    <meta name="theme-color" content="#680600">
+    <meta name="twitter:card" content="summary_large_image"/>
+    <meta name="twitter:title" content="Obliteration - Compatibility List"/>
+    <meta name="twitter:description" content="Here you can download Obliteration."/>
+    <meta name="twitter:image:src" content="/_images/Obliteration.png"/>
+    <meta property="og:title" content="Obliteration - An experimental open-source PS4 emulator">
+    <meta property="og:description" content="Here you can download Obliteration.">
+    <meta property="og:image" content="/_images/Obliteration.png">
+    <meta property="og:url" content="https://obliteration.net">
+    <link rel="icon" href="/_images/Obliteration-smoll.png" type="image/png">
+    <link rel="preconnect" href="https://rsms.me/">
+    <link rel="stylesheet" href="https://rsms.me/inter/inter.css">
+    <link rel="stylesheet" href="/required.css">
+    <link rel="stylesheet" href="styles.css">
+    <meta name="darkreader-lock"> <!-- for disabling dark mode with dark reader -->
+    <script defer src="/required.js"></script>
+    <script defer src="app.js"></script>
+</head>
+<body>
+    <header class="header" id="header"></header>
+    <div id="menu"></div>
+
+    <main class="main">
+        <div class="background">
+            <div class="backgroundPlane1"></div>
+            <div class="backgroundPlane2"></div>
+        </div>
+
+        <div class="content">
+
+            <div class="warning">
+                <div class="warningHeader">
+                    <img class="warningHeaderIcon"  alt="Image of a warning sign" src="./_images/warning.svg">
+                    <span class="warningHeaderText text-themed" >Warning!</span>
+                </div>
+                <span class="warningContent">This is very experimental software, expect things to break!</span>
+            </div>
+
+            <ul class="info skeletonLoading" id="infoContainer">
+                <li class="infoSub">
+                    <span class="infoText">Current Build</span>
+                    <a class="infoTextThemed" id="githubBuildNumber" target="_blank" rel="noopener" ></a>
+                </li>
+
+                <li class="infoSub">
+                    <span class="infoText" >Build Date</span>
+                    <a class="infoTextThemed" id="githubBuildDate" target="_blank" rel="noopener" ></a>
+                </li>
+
+                <li class="infoSub">
+                    <span class="infoText">Build Started By</span>
+                    <a class="infoAuthorUser" id="githubUserContainer" target="_blank" rel="noopener" >
+                        <img class="infoAuthorIcon" alt="Author Icon" id="githubAvatar" src="">
+                        <span class="infoAuthorName" id="githubUsername"></span>
+                    </a>
+                </li>
+            </ul>
+
+
+
+            <div class="download">
+                <ul class="downloadList">
+                    <li class="downloadListItem downloadListItemSelected">
+                        <img class="downloadListItemIcon" alt="Image of the windows 11 logo" src="./_images/windows.svg">
+                        <span class="downloadListItemText">Windows</span>
+                    </li>
+                    <li class="downloadListItem">
+                        <img class="downloadListItemIcon" alt="Image of the linux mascot: tux" src="./_images/linux.svg">
+                        <span class="downloadListItemText">Linux</span>
+                    </li>
+                    <li class="downloadListItem">
+                        <img class="downloadListItemIcon" alt="Image of the apple logo" src="./_images/macos.svg">
+                        <span class="downloadListItemText">MacOS</span>
+                    </li>
+                </ul>
+
+                <div class="downloadContentList">
+                    <div class="downloadContentListItem">
+                        <img class="downloadContentImage" alt="Screenshot of Obliteration on Windows" src="_images/obliteration-windows-screenshot.png" />
+                        <div class="downloadContentRight">
+                            <span class="downloadRightText">Download <span class="downloadRightText" style="color:#8c0a01;">Obliteration</span> for Windows 10 & 11!</span>
+                            <a class="downloadRightLink" href="artifacts/obliteration-win-x64.zip">
+                                <button class="downloadRightButton" > Portable Download [.zip]</button>
+                            </a>
+                        </div>
+
+                    </div>
+
+                    <div class="downloadContentListItem">
+                        <img class="downloadContentImage" alt="Screenshot of Obliteration on Linux" src="_images/obliteration-linux-screenshot.png" />
+                        <div class="downloadContentRight">
+                            <span class="downloadRightText">Download <span class="downloadRightText" style="color:#8c0a01;">Obliteration</span> for Linux!</span>
+                            <a class="downloadRightLink" href="artifacts/obliteration-linux-amd64.zip">
+                                <button class="downloadRightButton"> Download The Flatpak</button>
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="downloadContentListItem">
+                        <img class="downloadContentImage" alt="Screenshot of Obliteration on MacOS" src="_images/obliteration-macos-screenshot.png" />
+                        <div class="downloadContentRight">
+                            <span class="downloadRightText">Download <span class="downloadRightText" style="color:#8c0a01;">Obliteration</span> for MacOS!</span>
+
+                            <a class="downloadRightLink" href="artifacts/obliteration-mac-m1.zip">
+                                <button class="downloadRightButton"> Download [Apple M1]</button>
+                            </a>
+                            <a class="downloadRightLink" href="artifacts/obliteration-mac-intel.zip">
+                                <button class="downloadRightButton"> Download [Intel]</button>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+</body>
+</html>

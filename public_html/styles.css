@@ -28,48 +28,6 @@ body {
 }
 
 
-.mainBackground1, .mainBackground2 {
-    position: fixed;
-    transition: margin 0.5s ease;
-    width: 160rem;
-    height: 140rem;
-    margin-left: 22rem;
-    margin-top: -16rem;
-    transform-origin: 50% 48%;
-    border-radius: 43%;
-    top: 3%;
-    left: 10%;
-}
-
-.mainBackground1 {
-    animation: rotate1 21000ms infinite linear;
-    background: var(--main1);
-}
-
-.mainBackground2 {
-    animation: rotate2 21000ms infinite linear;
-    background: var(--main2);
-}
-
-@keyframes rotate1 {
-    from {
-        transform: rotate(0deg);
-    }
-    to {
-        transform: rotate(360deg);
-    }
-}
-
-@keyframes rotate2 {
-    from {
-        transform: rotate(30deg);
-    }
-    to {
-        transform: rotate(390deg);
-    }
-}
-
-
 .mainContent {
     display: flex;
     flex-direction: column;

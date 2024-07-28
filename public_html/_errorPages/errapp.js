@@ -1,7 +1,7 @@
 document.addEventListener('DOMContentLoaded', async function () {
     // required.js
     adjustScreenSize(700)
-    
+
     await init();
     adjustScreenSize(700);
 

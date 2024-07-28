@@ -297,6 +297,11 @@ fn main() {
         Err(err) => eprintln_red!("Error creating the \"{}\" file! {}", &config.stats_file, err),
     }
 
+    // get the artifacts
+    match utils::github_artifact_downloader(&config.artifacts_folder, &secrets.github_api_token, &config.workflow_url) {
+        Ok(_) => (),
+        Err(err) => eprintln_red!("Error Downloading the github artifacts! {}", err),
+    }
 
     // Calculate the elapsed time
     println_green!(
