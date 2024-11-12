@@ -115,15 +115,9 @@ async function init() {
                 <img id="headerIcon" src="/_images/Obliteration.avif" height="40px" width="auto" alt="Obliteration logo">
             </a>
             <div class="headerRight NoOpacity">
-                <a class="headerLink" href="/download">Download</a>
-                <a class="headerLink" href="/compatibility">Compatibility</a>
-                <a class="headerLink" href="/wiki" target="_blank" rel="noopener" >Wiki</a>
                 <div class="headerRightIcons">
                     <a href="https://github.com/obhq/obliteration" target="_blank" rel="noopener" style="display: flex;">
                         <img class="headerRightIconGithub" src="/_images/github.svg" alt="GitHub logo">
-                    </a>
-                    <a href="https://discord.gg/Qsdaxj6tnH" target="_blank" rel="noopener" style="display: flex;">
-                        <img class="headerRightIconDiscord" src="/_images/discord.svg" alt="Discord logo">
                     </a>
                     <img class="headerRightIconMenu" src="/_images/menu.svg" id="menuButton" alt="Mobile menu button">
                 </div>
